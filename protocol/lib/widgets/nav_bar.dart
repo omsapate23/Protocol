@@ -27,36 +27,6 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: AppColors.background.withValues(alpha: 0.9),
       elevation: 0,
-      title: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.primaryRed),
-              borderRadius: BorderRadius.circular(4),
-            ),
-            child: const Text(
-              'PROTOCOL',
-              style: TextStyle(
-                color: AppColors.primaryRed,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2,
-                fontFamily: 'monospace',
-              ),
-            ),
-          ),
-          const SizedBox(width: 10),
-          if (isDesktop)
-            const Text(
-              '// AISSMS COE',
-              style: TextStyle(
-                fontSize: 12,
-                color: AppColors.textMuted,
-                fontFamily: 'monospace',
-              ),
-            ),
-        ],
-      ),
       actions: isDesktop
           ? [
               _navButton('About', onAboutTap),
@@ -105,8 +75,50 @@ class NavDrawer extends StatelessWidget {
     return Drawer(
       backgroundColor: AppColors.surface,
       child: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
         children: [
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: AppColors.borderSubtle),
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/logo.png',
+                  height: 50,
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, __, ___) => const Icon(
+                    Icons.shield_outlined,
+                    color: AppColors.primaryRed,
+                    size: 40,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                const Text(
+                  'PROTOCOL',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'monospace',
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2,
+                    fontSize: 16,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                const Text(
+                  '// AISSMS COE',
+                  style: TextStyle(
+                    color: AppColors.textMuted,
+                    fontFamily: 'monospace',
+                    fontSize: 11,
+                  ),
+                ),
+              ],
+            ),
+          ),
           _drawerItem(context, 'About', onAboutTap),
           _drawerItem(context, 'Vision & Mission', onVisionTap),
           _drawerItem(context, 'Core Domains', onDomainsTap),
