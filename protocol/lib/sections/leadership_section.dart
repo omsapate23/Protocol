@@ -11,7 +11,7 @@ class LeadershipSection extends StatelessWidget {
     final executiveBoard = [
       {'role': 'President', 'name': 'Sarvesh Deshmukh'},
       {'role': 'Vice-President', 'name': 'Atharva Urde'},
-      {'role': 'Technical Lead', 'name': 'Varad Hajare'},
+      {'role': 'Technical Lead', 'name': 'Sushant Koul'},
       {'role': 'Research Lead', 'name': 'Varad Hajare'},
       {'role': 'Design Lead', 'name': 'Rudra Chandgude'},
       {'role': 'Event Management Lead', 'name': 'Aakash Haygonde'},
